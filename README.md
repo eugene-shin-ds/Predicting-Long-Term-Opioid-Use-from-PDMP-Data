@@ -1,2 +1,2 @@
-# healthcare-ml-model-comparison
-Machine learning models for opioid overdose risk prediction using large-scale public health data.
+## Overview
+This repository contains an end-to-end machine learning workflow for predicting opioid overdose risk using large-scale prescription and healthcare data.
