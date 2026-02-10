@@ -5,19 +5,19 @@ The repository provides an R-based, reproducible modeling pipeline built on feat
 
 Due to privacy, ethical, and institutional restrictions, individual-level data are not publicly shared; however, the full modeling and evaluation workflow, along with the data schema, is provided to support transparency and reproducibility.
 
-## Motivation
-----------
+Motivation
+---
 Early identification of patients at risk of developing long-term opioid use is critical for prevention and intervention efforts. PDMPs provide rich longitudinal prescribing information that can support risk stratification, but require robust modeling, calibration, and evaluation frameworks to ensure reliable and interpretable predictions.
 
-## Modeling Framework
-------------------
+Modeling Framework
+---
 All models are trained using a shared feature set derived from PDMP data to enable direct comparison across modeling approaches. The pipeline is designed to be modifiable and extensible, allowing alternative models, feature sets, or evaluation strategies to be incorporated within a consistent analytical framework.
 
 Feature Engineering
 ---
 Features are derived from prescription histories and patient characteristics, including medication types, dispensing patterns, temporal utilization measures, and summary statistics capturing the intensity and variability of opioid exposure. Feature construction is standardized across models to support fair comparison.
 
-## Repository Structure
+Repository Structure
 ```
 Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 ├── R/
