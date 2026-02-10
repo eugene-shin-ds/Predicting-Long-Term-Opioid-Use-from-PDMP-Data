@@ -74,15 +74,26 @@ After cloning the repository, run the full pipeline with:
 
 ```r
 source("run_all.R")
+```
 
-**Data Availability
+---
+
+## Data Availability
 
 Due to privacy, ethical, and institutional restrictions, individual-level PDMP data cannot be publicly shared.
 
 This repository provides:
 
-Code for data processing, modeling, and evaluation
+ - Code for data processing, modeling, and evaluation
 
-A complete data schema describing all variables used
+ - A complete data schema describing all variables used
 
 Access to the underlying data may be granted upon reasonable request and appropriate institutional approvals.
+
+---
+
+## Data Schema
+
+The full data schema is available here:
+ - `data/schema_github.csv`
+The schema includes variable names and data types for all features used in model training and evaluation.
