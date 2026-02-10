@@ -97,3 +97,62 @@ Access to the underlying data may be granted upon reasonable request and appropr
 The full data schema is available here:
  - `data/schema_github.csv`
 The schema includes variable names and data types for all features used in model training and evaluation.
+
+---
+
+## Reproducibility
+
+This project uses renv to manage R package dependencies.
+
+To restore the project environment after cloning:
+
+```r
+install.packages("renv")
+renv::restore()
+```
+
+Random seeds are set where applicable; minor numerical differences may still occur across platforms.
+
+---
+
+## Outputs
+
+`R/03_results.R` generates:
+
+- Model performance summary tables (CSV)
+
+- AUC with confidence intervals
+
+- Confusion matrix–based performance metrics
+
+- Threshold-specific evaluation results
+
+Output filenames and paths are defined within the script.
+
+---
+
+## Privacy and Ethics
+
+This repository does not contain individual-level patient or PDMP data.
+
+All analyses were conducted in accordance with applicable privacy, ethical, and institutional guidelines.
+The MIT License applies to the code only and does not grant access to any underlying data.
+
+---
+
+## Citation
+
+If you use this repository, please cite:
+
+`Eugene Shin. Predicting Long-Term Opioid Use from PDMP Data. GitHub repository.`
+
+(See CITATION.cff for citation metadata.)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+See the `LICENSE` file for details.
+
+
