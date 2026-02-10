@@ -114,8 +114,6 @@ The full data schema is available here:
  - `data/schema_github.csv`
 The schema includes variable names and data types for all features used in model training and evaluation.
 
----
-
 Reproducibility
 ------------------------------------------------------
 This project uses renv to manage R package dependencies.
