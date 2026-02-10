@@ -1,0 +1,36 @@
+# -----------------------
+# Sensitive/local data
+# -----------------------
+Data/
+data/raw/
+data/private/
+
+# Block common data artifacts
+*.csv
+*.rds
+*.RData
+*.parquet
+*.feather
+*.xlsx
+*.zip
+
+# Allow schema only (keep your schema tracked)
+!schema_github.csv
+!data/schema*.csv
+!data/README.md
+
+# -----------------------
+# Outputs
+# -----------------------
+outputs/
+results/
+figures/
+plots/
+
+# -----------------------
+# R / IDE
+# -----------------------
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
