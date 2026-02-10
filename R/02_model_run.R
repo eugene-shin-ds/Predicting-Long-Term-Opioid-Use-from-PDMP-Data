@@ -1,5 +1,5 @@
 # ----------------------------------------
-# 📦 Load required packages
+# Load required packages
 # ----------------------------------------
 library(randomForest)
 library(xgboost)
@@ -16,7 +16,7 @@ library(glmnet)
 library(nnet)
 
 # ----------------------------------------
-# ⚠️ [Required] Data preparation and shared objects
+# [Required] Data preparation and shared objects
 # ----------------------------------------
 # The following objects must already exist in the environment:
 # df_train, df_test, x_train, x_test, y_train, y_test
@@ -29,7 +29,7 @@ df_train$long_term <- factor(df_train$long_term, levels = c(0, 1))
 df_test$long_term <- factor(df_test$long_term, levels = c(0, 1))
 
 # ----------------------------------------
-# 🛠️ User-defined helper functions (corrected)
+# User-defined helper functions (corrected)
 # ----------------------------------------
 
 # [Fix 2] Correct confusionMatrix indexing
@@ -63,7 +63,7 @@ extract_auc_ci <- function(roc_obj) {
 }
 
 # ----------------------------------------
-# ✅ 1. Random Forest
+# 1. Random Forest
 # ----------------------------------------
 set.seed(20251015)
 rf_model <- randomForest(long_term ~ ., data = df_train, ntree = 100)
@@ -96,7 +96,7 @@ conf_youden_rf <- confusionMatrix(factor(pred_youden_rf, levels = c(0, 1)), true
 conf_f1_rf     <- confusionMatrix(factor(pred_f1_rf, levels = c(0, 1)), true_factor, positive = "1")
 
 # ----------------------------------------
-# ✅ 2. XGBoost (with best_iteration safeguard)
+# 2. XGBoost (with best_iteration safeguard)
 # ----------------------------------------
 set.seed(20251015)
 dtrain <- xgb.DMatrix(data = x_train, label = y_train)
@@ -146,7 +146,7 @@ conf_youden_xgb <- confusionMatrix(factor(pred_youden_xgb, levels=c(0,1)), true_
 conf_f1_xgb     <- confusionMatrix(factor(pred_f1_xgb, levels=c(0,1)), true_factor, positive="1")
 
 # ----------------------------------------
-# ✅ 3. LASSO
+# 3. LASSO
 # ----------------------------------------
 set.seed(20251015)
 lasso_model <- cv.glmnet(x = x_train, y = y_train, alpha = 1, family = "binomial", nfolds = 5)
@@ -176,7 +176,7 @@ conf_youden_lasso <- confusionMatrix(factor(pred_youden_lasso, levels=c(0,1)), t
 conf_f1_lasso     <- confusionMatrix(factor(pred_f1_lasso, levels=c(0,1)), true_factor, positive="1")
 
 # ----------------------------------------
-# ✅ 4. MLR (Logistic Regression)
+# 4. MLR (Logistic Regression)
 # ----------------------------------------
 set.seed(20251015)
 mlr_model <- glm(long_term ~ ., data = df_train, family = "binomial")
@@ -205,7 +205,7 @@ conf_youden_mlr <- confusionMatrix(factor(pred_youden_mlr, levels=c(0,1)), true_
 conf_f1_mlr     <- confusionMatrix(factor(pred_f1_mlr, levels=c(0,1)), true_factor, positive="1")
 
 # ----------------------------------------
-# ✅ 5. MLR Comparison (Interaction Terms)
+# 5. MLR Comparison (Interaction Terms)
 # ----------------------------------------
 set.seed(20251015)
 model_formula <- long_term ~ sexnum + pharm30_opipill + er30_opipill +
@@ -240,7 +240,7 @@ conf_youden_mlr_comp <- confusionMatrix(factor(pred_youden_mlr_comp, levels=c(0,
 conf_f1_mlr_comp     <- confusionMatrix(factor(pred_f1_mlr_comp, levels=c(0,1)), true_factor, positive="1")
 
 # ----------------------------------------
-# ✅ 6. DNN (PCA Applied)
+# 6. DNN (PCA Applied)
 # ----------------------------------------
 set.seed(20251015)
 nzv <- nearZeroVar(x_train)
@@ -278,7 +278,7 @@ conf_youden_dnn <- confusionMatrix(factor(pred_youden_dnn, levels=c(0,1)), true_
 conf_f1_dnn     <- confusionMatrix(factor(pred_f1_dnn, levels=c(0,1)), true_factor, positive="1")
 
 # ----------------------------------------
-# ✅ 7. Elastic Net
+# 7. Elastic Net
 # ----------------------------------------
 set.seed(20251015)
 elastic_model <- cv.glmnet(x = x_train, y = y_train, alpha = 0.5, family = "binomial", nfolds = 5)
@@ -306,3 +306,4 @@ pred_f1_elastic     <- ifelse(pred_prob_elastic >= cutoff_f1_elastic, 1, 0)
 conf_base_elastic   <- confusionMatrix(factor(pred_base_elastic, levels=c(0,1)), true_factor, positive="1")
 conf_youden_elastic <- confusionMatrix(factor(pred_youden_elastic, levels=c(0,1)), true_factor, positive="1")
 conf_f1_elastic     <- confusionMatrix(factor(pred_f1_elastic, levels=c(0,1)), true_factor, positive="1")
+
