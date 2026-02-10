@@ -1,7 +1,9 @@
 # Predicting Long-Term Opioid Use from PDMP Data
+This project trains and evaluates multiple machine learning models to identify patients at risk of developing new long-term opioid use using real-world prescription data.
 
-This repository contains an R-based machine learning pipeline for predicting **new long-term opioid use** using features derived from Prescription Drug Monitoring Program (PDMP) data.  
-Due to privacy, ethical, and institutional restrictions, **individual-level data are not publicly shared**. The repository provides the full modeling and evaluation workflow and a data schema (if available).
+The repository provides an R-based, reproducible modeling pipeline built on features derived from Prescription Drug Monitoring Program (PDMP) data, including comprehensive performance summaries and threshold optimization strategies.
+
+Due to privacy, ethical, and institutional restrictions, individual-level data are not publicly shared; however, the full modeling and evaluation workflow, along with the data schema, is provided to support transparency and reproducibility.
 
 ## Repository Structure
 ```
