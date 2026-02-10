@@ -16,7 +16,7 @@ data/private/
 
 # Allow schema only (keep your schema tracked)
 !schema_github.csv
-!data/schema*.csv
+!data/schema_github
 !data/README.md
 
 # -----------------------
