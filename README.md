@@ -156,4 +156,9 @@ If you use this repository, please cite:
 This project is licensed under the MIT License.
 See the `LICENSE` file for details.
 
+---
+
+## Reproducibility
+This project uses `renv` for dependency management. Exact package versions are recorded in `renv.lock`.
+
 
