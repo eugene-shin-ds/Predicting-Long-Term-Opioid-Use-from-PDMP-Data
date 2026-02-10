@@ -1,3 +1,3 @@
-source("1.Load Data.R")
-source("2.Model Run.R")
-source("3.Results.R")
+source("R/01_load_data.R")
+source("R/02_model_run.R")
+source("R/03_results.R")
