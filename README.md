@@ -44,6 +44,9 @@ Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 - `R/03_results.R`  
   Evaluates model performance, applies multiple thresholding strategies, and exports summary tables.
 
+- `R/04_visualization.R`  
+  Generates diagnostic and evaluation visualizations (e.g., calibration plots and distribution summaries) for model assessment.
+
 - `run_all.R`  
   Runs the full pipeline in the correct order.
 
@@ -90,6 +93,8 @@ After cloning the repository, run the full pipeline with:
 ```r
 source("run_all.R")
 ```
+
+**Note:** Model results and visualizations are intentionally omitted from this repository due to data sensitivity and privacy considerations.
 
 Data Availability
 ------------------------------------------------------
