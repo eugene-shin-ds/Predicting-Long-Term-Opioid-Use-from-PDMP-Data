@@ -11,8 +11,7 @@ Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 │ ├── 02_model_run.R
 │ └── 03_results.R
 ├── data/
-│ ├── schema_github.csv
-│ └── README.md
+│ └── schema_github.csv
 ├── run_all.R
 ├── README.md
 ├── LICENSE
