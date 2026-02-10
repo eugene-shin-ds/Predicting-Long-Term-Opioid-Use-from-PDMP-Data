@@ -5,32 +5,84 @@ Due to privacy, ethical, and institutional restrictions, **individual-level data
 
 ## Repository Structure
 
-- `1.Load Data.R`  
-  Loads raw/processed input files, performs feature engineering (e.g., drug category one-hot encoding), and creates the train/test datasets.
+Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
+├── R/
+│ ├── 01_load_data.R
+│ ├── 02_model_run.R
+│ └── 03_results.R
+├── data/
+│ ├── schema_github.csv
+│ └── README.md
+├── run_all.R
+├── README.md
+├── LICENSE
+└── .gitignore
 
-- `2.Model Run.R`  
-  Trains models and generates predicted probabilities. Models include:
-  - Random Forest
-  - XGBoost
-  - LASSO (glmnet)
-  - Logistic Regression (MLR)
-  - Logistic Regression with interaction terms (MLR_comp)
-  - Neural Network (nnet) with PCA
-  - Elastic Net (glmnet)
+- `R/01_load_data.R`  
+  Loads data, performs feature engineering, and prepares training/testing sets.
 
-- `3.Results.R`  
-  Evaluates model performance and produces summary tables using:
-  - ROC AUC + confidence intervals
-  - Threshold strategies: Base (0.5), Youden-optimal, and F1-optimal
-  - Confusion matrix counts (TP/FP/TN/FN) and derived metrics (Sensitivity, Specificity, PPV, NPV, Youden’s J, etc.)
+- `R/02_model_run.R`  
+  Trains machine learning models and generates predicted probabilities.
 
-## Requirements
+- `R/03_results.R`  
+  Evaluates model performance, applies multiple thresholding strategies, and exports summary tables.
 
-### R Packages
-The pipeline uses common ML and evaluation libraries including:
-`caret`, `pROC`, `randomForest`, `xgboost`, `glmnet`, `nnet`, `dplyr`, `tibble`, `purrr`, `ggplot2`, `Matrix`
+- `run_all.R`  
+  Runs the full pipeline in the correct order.
 
-Install missing packages:
+- `data/schema_github.csv`  
+  Data schema (variable names and types). No individual-level data are included.
+
+---
+
+## Models Included
+
+The pipeline evaluates the following models:
+
+- Random Forest  
+- XGBoost  
+- LASSO (glmnet)  
+- Logistic Regression (MLR)  
+- Logistic Regression with interaction terms (MLR_comp)  
+- Neural Network (nnet) with PCA  
+- Elastic Net (glmnet)
+
+---
+
+## Evaluation Strategy
+
+Each model is evaluated under three thresholding strategies:
+
+- **Base**: Fixed cutoff at 0.5  
+- **Youden**: Cutoff that maximizes *(Sensitivity + Specificity − 1)*  
+- **F1**: Cutoff that maximizes the F1 score across a grid of thresholds  
+
+Reported metrics typically include:
+
+- Accuracy  
+- Sensitivity, Specificity  
+- PPV, NPV  
+- Youden’s J  
+- Confusion matrix counts (TN, FP, FN, TP)  
+- AUC (C-statistic) with confidence intervals  
+
+---
+
+## Quickstart
+
+After cloning the repository, run the full pipeline with:
+
 ```r
-pkgs <- c("caret","pROC","randomForest","xgboost","glmnet","nnet","dplyr","tibble","purrr","ggplot2","Matrix")
-install.packages(setdiff(pkgs, rownames(installed.packages())))
+source("run_all.R")
+
+**Data Availability
+
+Due to privacy, ethical, and institutional restrictions, individual-level PDMP data cannot be publicly shared.
+
+This repository provides:
+
+Code for data processing, modeling, and evaluation
+
+A complete data schema describing all variables used
+
+Access to the underlying data may be granted upon reasonable request and appropriate institutional approvals.
