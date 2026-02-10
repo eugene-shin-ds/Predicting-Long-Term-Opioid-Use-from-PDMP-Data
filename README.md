@@ -4,7 +4,7 @@ This repository contains an R-based machine learning pipeline for predicting **n
 Due to privacy, ethical, and institutional restrictions, **individual-level data are not publicly shared**. The repository provides the full modeling and evaluation workflow and a data schema (if available).
 
 ## Repository Structure
-
+```
 Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 ├── R/
 │ ├── 01_load_data.R
@@ -17,7 +17,7 @@ Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 ├── README.md
 ├── LICENSE
 └── .gitignore
-
+```
 - `R/01_load_data.R`  
   Loads data, performs feature engineering, and prepares training/testing sets.
 
