@@ -14,10 +14,12 @@ Predicting-Long-Term-Opioid-Use-from-PDMP-Data/
 │ └── 03_results.R
 ├── data/
 │ └── schema_github.csv
-├── run_all.R
-├── README.md
+├── .gitignore
 ├── LICENSE
-└── .gitignore
+├── README.md
+├── renv.lock
+└── run_all.R
+ 
 ```
 - `R/01_load_data.R`  
   Loads data, performs feature engineering, and prepares training/testing sets.
