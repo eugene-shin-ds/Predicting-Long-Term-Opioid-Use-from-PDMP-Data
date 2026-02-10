@@ -43,7 +43,7 @@ df_test <- df[-train_index, ]
 rm(train_index)
 
 # ----------------------------------------
-# 🧹 Common preprocessing: design matrix and target preparation
+# Common preprocessing: design matrix and target preparation
 # ----------------------------------------
 x_train <- model.matrix(long_term ~ . -1, data = df_train)
 x_test <- model.matrix(long_term ~ . -1, data = df_test)
@@ -51,3 +51,4 @@ y_train <- as.numeric(as.character(df_train$long_term))
 y_test <- as.numeric(as.character(df_test$long_term))
 true_factor <- factor(y_test, levels = c(0, 1))
 thresholds <- seq(0.01, 0.99, by = 0.01)
+
